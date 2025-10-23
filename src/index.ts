@@ -5,21 +5,21 @@ const borwser = new Browser({
     settings: {
         enableJavaScriptEvaluation: true,
         suppressInsecureJavaScriptEnvironmentWarning: true,
-        // fetch: {
-        //     interceptor: {
-        //         beforeAsyncRequest: async ({ request, window }) => {
-        //             console.log('🔍 Main window request intercepted:', request.url);
-        //             console.log('📋 Request method:', request.method);
-        //             console.log('📋 Request headers:', Object.fromEntries(request.headers.entries()));
-        //         },
-        //         afterAsyncResponse: async ({ request, response, window }) => {
-        //             console.log('✅ Main window response received:', request.url);
-        //             // console.log('📋 Response status:', response.status);
-        //             console.log('📋 Response body:', JSON.stringify(response.body));
-        //         },
-        //     },
-        //     disableSameOriginPolicy: true,
-        // },
+        fetch: {
+            interceptor: {
+                beforeAsyncRequest: async ({ request, window }) => {
+                    console.log('🔍 Main window request intercepted:', request.url);
+                    console.log('📋 Request method:', request.method);
+                    console.log('📋 Request headers:', Object.fromEntries(request.headers.entries()));
+                },
+                afterAsyncResponse: async ({ request, response, window }) => {
+                    console.log('✅ Main window response received:', request.url);
+                    // console.log('📋 Response status:', response.status);
+                    console.log('📋 Response body:', JSON.stringify(response.body));
+                },
+            },
+            disableSameOriginPolicy: true,
+        },
     },
 });
 
